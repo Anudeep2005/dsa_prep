@@ -32,11 +32,44 @@ class Solution
             if(nums1[i] < nums2[j])
             {
                 if(temp.empty() || temp.back() != nums1[i])
-                {
-                    
-                } 
+                    temp.push_back(nums1[i++]);
+                i++;
+                
             }
+            else if(nums2[j] < nums1[i])
+            {
+                if(temp.empty() || temp.back() != nums2[j])
+                    temp.push_back(nums2[j]);
+                j++;
+            }
+
+            if(nums1[i] == nums2[j])
+            {
+                if(temp.empty() || temp.back() != nums1[i])
+                {
+                    temp.push_back(nums1[i]);   
+                }
+                i++;
+                j++;
+            }
+            
         }
+        while(i < n)
+        {
+            if(temp.empty() || temp.back() != nums1[i])
+                    temp.push_back(nums1[i]);
+            i++;
+        }
+
+        while(j < m)
+        {
+            if(temp.empty() || temp.back() != nums2[j])
+                    temp.push_back(nums2[j]);
+            j++;
+        }
+
+        return temp;
+
     }
 
 };
@@ -51,11 +84,8 @@ int main()
     for(int i = 0;i < m;i++) cin >> nums2[i];
     Solution sol;
     vector<int> Union = sol.union_of_sorted_arrays(nums1,nums2);
-    for(int i = 0;i < Union.size();i++)
-    {
-
-    }
-
+    for(int i = 0;i < Union.size();i++) cout << Union[i] <<" ";
+    
     
 } 
 
@@ -67,12 +97,12 @@ int main()
 
         1.Hashmap
         2.Sets
-        3.Two pointer approach - optimal approach.
+        3.Two pointer approach - optimal.
 
     Complexity Analysis
 
-    Time : 
-    Space : 
+    Time : O(n+m)
+    Space : O(n+m)
 
 
 */
