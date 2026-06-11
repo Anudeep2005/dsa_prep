@@ -12,20 +12,35 @@ using namespace std;
 class Solution
 {
     public:
-    void print_ele()
+    int print_ele(int n,int r)
     {
-        
+        int result = 1;
+        for(int i = 0;i < r;i++)
+        {
+            result = result * (n - i);
+            result = result / (i+1);
+        }
+        return result;
     }
 
-    void print_row()
-    {
-        
+    vector<int> print_row(int n)
+    {  
+        vector<int> row;
+        int val = 1;
+        row.push_back(val);
+        for(int i = 0;i < n;i++)
+        {
+            val = val * (n - i) / (i + 1);
+            row.push_back(val);
+        }
+        return row;
+  
     }
 
     vector<vector<int>> print_triangle(int rows)
     {
         vector<vector<int>> row_arr;
-        for(int i = 0;i < rows;i++)
+        for(int i = 0;i <= rows;i++)
         {
             vector<int> row;
             for(int j = 0;j <= i;j++)
@@ -47,11 +62,14 @@ class Solution
 int main()
 {
 
-    int rows,r,c;
-    cin >> rows >> r >> c;
+    int rows,n,r;
+    cin >> rows >> n >> r;
     Solution sol;
 
     vector<vector<int>> triangle = sol.print_triangle(rows);
+    vector<int> row = sol.print_row(n);
+    int nCr = sol.print_ele(n,r);
+    cout <<"Triangle : " <<endl;
     for(int i = 0;i < triangle.size();i++)
     {
         for(int j = 0;j < triangle[i].size();j++)
@@ -60,6 +78,13 @@ int main()
         }
         cout << endl;
     }
+    cout << n <<"th Row :";
+    for(int i = 0;i < row.size();i++)
+    {
+        cout << row[i] <<" ";
+    }
+    cout <<"\n" <<"Element at " <<n <<"th row and "<<r<<"th Column : " <<endl;
+    cout <<nCr;
 
     return 0;
 }
