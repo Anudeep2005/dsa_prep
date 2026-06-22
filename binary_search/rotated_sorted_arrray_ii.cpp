@@ -83,6 +83,6 @@ int main()
 
         If you were to approach a problem that deals with duplicates.
         Try solving the problem with distinct values first and then
-        Fit in the duplicate condition.
+        Fit in the duplicate condition...
 
 */
