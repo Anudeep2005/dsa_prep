@@ -1,5 +1,5 @@
 /*
-    Problem :Given an array ‘nums of integer numbers, ‘nums[i]’ represents the number of pages in the ‘i-th’ book. There are a ‘m’ number of students, and the task is to allocate all the books to the students.
+    Problem :Given an array ‘nums of integer numbers, ‘nums[i]’ represents the number of pages in the ‘i-th’ book. There are a ‘m’ number of students, and the task is to allocate all the books to the students..
 
     Allocate books in such a way that:
 
